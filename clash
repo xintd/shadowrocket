@@ -12,6 +12,7 @@ proxy-providers:
   clash:
     type: http
     path: ./profiles/proxies/clash.yaml
+    #(clash 订阅链接)
     url: https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml
     interval: 3600 
     #filter: 'Hong Kong' # 删选出含有该关键词的节点
@@ -51,7 +52,7 @@ proxy-groups:
     type: url-test
     interval: 3600 
     url: http://www.gstatic.com/generate_204
-    use:
+    use:  # 引入proxy-provider 使用 use 关键字
       - clash
       - clash1
       - clash2
