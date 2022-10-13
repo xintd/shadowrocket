@@ -28,7 +28,7 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-   clash2:
+  clash2:
     type: http
     path: ./profiles/proxies/clash2.yaml
     url: https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
