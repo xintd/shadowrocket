@@ -16,15 +16,6 @@ proxy-providers:
   clash1:
     type: http
     path: ./profiles/proxies/clash1.yaml
-    url: https://raw.githubusercontent.com/xintaikeji/fenxiang/main/clash1
-    interval: 3600
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  clash2:
-    type: http
-    path: ./profiles/proxies/clash2.yaml
     url: https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
     interval: 3600
     health-check:
@@ -39,7 +30,6 @@ proxy-groups:
     use:
       - clash
       - clash1
-      - clash2
     proxies:
       - DIRECT
 rule-providers:
@@ -179,4 +169,5 @@ rules:
   - GEOIP,DIRECT
   - GEOIP,CN,DIRECT
   - DOMAIN-KEYWORD,v2rayse,DIRECT
+  - DOMAIN-KEYWORD,555dy,DIRECT
   - MATCH,PROXY
