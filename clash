@@ -8,7 +8,7 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/clash.yaml
     url: https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml
-    interval: 3600
+    interval: 1800
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -17,7 +17,7 @@ proxy-providers:
     type: http
     path: ./profiles/proxies/clash1.yaml
     url: https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
-    interval: 3600
+    interval: 1800
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -25,7 +25,8 @@ proxy-providers:
 proxy-groups:
   - name: PROXY
     type: url-test
-    interval: 3600
+    interval: 300
+    tolerance: 100
     url: http://www.gstatic.com/generate_204
     use:
       - clash
