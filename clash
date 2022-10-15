@@ -16,7 +16,7 @@ proxy-providers:
   clash1:
     type: http
     path: ./profiles/proxies/clash1.yaml
-    url: https://raw.githubusercontent.com/xintaikeji/fenxiang/main/clash10
+    url: https://raw.githubusercontent.com/xintaikeji/fenxiang/main/clash1
     interval: 3600
     health-check:
       enable: true
