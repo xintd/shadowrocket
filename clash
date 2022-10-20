@@ -16,7 +16,7 @@ proxy-providers:
   clash1:
     type: http
     path: ./profiles/proxies/clash1.yaml
-    url: https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml
+    url: https://openit.daycat.space/clash
     interval: 1800
     health-check:
       enable: true
