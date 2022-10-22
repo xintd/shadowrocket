@@ -7,7 +7,7 @@ proxy-providers:
   clash:
     type: http
     path: ./profiles/proxies/clash.yaml
-    url: https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml
+    url: https://pre.paimon.gq/publish/clash.yaml
     interval: 1800
     health-check:
       enable: true
@@ -16,7 +16,7 @@ proxy-providers:
   clash1:
     type: http
     path: ./profiles/proxies/clash1.yaml
-    url: https://openit.daycat.space/clash
+    url: https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml
     interval: 1800
     health-check:
       enable: true
