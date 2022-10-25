@@ -3,6 +3,7 @@ allow-lan: false
 mode: Rule
 log-level: silent
 external-controller: 127.0.0.1:60000
+
 proxy-providers:
   paimon:
     type: http
@@ -22,96 +23,118 @@ proxy-providers:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
+
 proxy-groups:
-  - name: PROXY
+  - name: 🚀 PROXY
     type: url-test
     interval: 300
-    tolerance: 100
+    tolerance: 50
     url: http://www.gstatic.com/generate_204
     use:
       - yu-steven
       - paimon
     proxies:
       - DIRECT
+
 rule-providers:
-  reject:
+  reject: # 广告域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
-    path: ./profiles/rules/reject.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
     interval: 86400
-  icloud:
+          
+  icloud: # iCloud 域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
-    path: ./profiles/rules/icloud.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    path: ./ruleset/icloud.yaml
     interval: 86400
-  apple:
+    
+  apple: # Apple 在中国大陆可直连的域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
-    path: ./profiles/rules/apple.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    path: ./ruleset/apple.yaml
     interval: 86400
-  google:
+    
+  google: # Google 在中国大陆可直连的域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
-    path: ./profiles/rules/google.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    path: ./ruleset/google.yaml
     interval: 86400
-  proxy:
+    
+  proxy: # 代理域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
-    path: ./profiles/rules/proxy.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
     interval: 86400
-  direct:
+    
+  direct: # 直连域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
-    path: ./profiles/rules/direct.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.yaml
     interval: 86400
-  private:
+    
+  private: # 私有网络专用域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-    path: ./profiles/rules/private.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./ruleset/private.yaml
     interval: 86400
-  gfw:
+    
+  gfw: # GFWList 域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
-    path: ./profiles/rules/gfw.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./ruleset/gfw.yaml
     interval: 86400
-  greatfire:
+    
+  greatfire: # GreatFire 域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt
-    path: ./profiles/rules/greatfire.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
+    path: ./ruleset/greatfire.yaml
     interval: 86400
-  tld-not-cn:
+    
+  tld-not-cn: # 非中国大陆使用的顶级域名列表
     type: http
     behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
-    path: ./profiles/rules/tld-not-cn.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
     interval: 86400
-  telegramcidr:
+    
+  telegramcidr: # Telegram 使用的 IP 地址列表
     type: http
     behavior: ipcidr
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
-    path: ./profiles/rules/telegramcidr.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
     interval: 86400
-  cncidr:
+    
+  cncidr: # 中国大陆 IP 地址列表
     type: http
     behavior: ipcidr
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
-    path: ./profiles/rules/cncidr.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
     interval: 86400
-  lancidr:
+    
+  lancidr: # 局域网 IP 及保留 IP 地址列表
     type: http
     behavior: ipcidr
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
-    path: ./profiles/rules/lancidr.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
     interval: 86400
+    
+  applications: # 需要直连的常见软件列表
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
 rules:
   - PROCESS-NAME,v2ray,DIRECT
   - PROCESS-NAME,xray,DIRECT
@@ -159,16 +182,19 @@ rules:
   - PROCESS-NAME,WebTorrent.exe,DIRECT
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
+  - RULE-SET,applications,DIRECT
   - RULE-SET,private,DIRECT
   - RULE-SET,reject,REJECT
-  - RULE-SET,icloud,DIRECT
-  - RULE-SET,apple,DIRECT
-  - RULE-SET,google,DIRECT
-  - RULE-SET,proxy,PROXY
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,telegramcidr,PROXY
-  - GEOIP,DIRECT
+  - RULE-SET,icloud,DIRECT #
+  - RULE-SET,apple,DIRECT # 这三个为国内可直连地址，如果希望走代理改为🚀 PROXY
+  - RULE-SET,google,DIRECT # 
+  - RULE-SET,tld-not-cn,🚀 PROXY
+  - RULE-SET,gfw,🚀 PROXY
+  - RULE-SET,greatfire,🚀 PROXY
+  - RULE-SET,telegramcidr,🚀 PROXY
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,cncidr,DIRECT
   - GEOIP,CN,DIRECT
-  - DOMAIN-KEYWORD,v2rayse,DIRECT
-  - DOMAIN-KEYWORD,555dy,DIRECT
-  - MATCH,PROXY
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,proxy,🚀 PROXY
+  - MATCH,🚀 PROXY
