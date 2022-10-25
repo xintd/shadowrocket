@@ -4,18 +4,18 @@ mode: Rule
 log-level: silent
 external-controller: 127.0.0.1:60000
 proxy-providers:
-  clash:
+  paimon:
     type: http
-    path: ./profiles/proxies/clash.yaml
+    path: ./profiles/proxies/paimon.yaml
     url: https://pre.paimon.gq/publish/clash.yaml
     interval: 1800
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
       interval: 300
-  clash1:
+  yu-steven:
     type: http
-    path: ./profiles/proxies/clash1.yaml
+    path: ./profiles/proxies/yu-steven.yaml
     url: https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml
     interval: 1800
     health-check:
@@ -29,8 +29,8 @@ proxy-groups:
     tolerance: 100
     url: http://www.gstatic.com/generate_204
     use:
-      - clash
-      - clash1
+      - yu-steven
+      - paimon
     proxies:
       - DIRECT
 rule-providers:
