@@ -5,20 +5,11 @@ log-level: silent
 external-controller: 127.0.0.1:60000
 
 proxy-providers:
-  paimon:
+  TopFreeProxies:
     type: http
-    path: ./profiles/proxies/paimon.yaml
-    url: https://pre.paimon.gq/publish/clash.yaml
-    interval: 1800
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-  yu-steven:
-    type: http
-    path: ./profiles/proxies/yu-steven.yaml
-    url: https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml
-    interval: 1800
+    path: ./profiles/proxies/clash.yaml
+    url: https://raw.iqiq.io/xintd/shadowrocket/master/clash
+    interval: 900
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -28,11 +19,10 @@ proxy-groups:
   - name: 🚀 PROXY
     type: url-test
     interval: 300
-    tolerance: 50
+    tolerance: 100
     url: http://www.gstatic.com/generate_204
     use:
-      - yu-steven
-      - paimon
+      - TopFreeProxies
     proxies:
       - DIRECT
 
