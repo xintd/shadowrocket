@@ -70,7 +70,7 @@ proxy-providers:
     path: ./profiles/proxies/clash.yaml
     url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
     interval: 900
-    filter: '(?i)(RU|CA|DE|GB|FR|NO|PA|ID|IN|IR)'
+    filter: '(RU|CA|DE|GB|FR|NO|PA|ID|IN|IR)'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
