@@ -5,11 +5,72 @@ log-level: silent
 external-controller: 127.0.0.1:60000
 
 proxy-providers:
-  TopFreeProxies:
+  香港:
     type: http
     path: ./profiles/proxies/clash.yaml
-    url: https://raw.iqiq.io/xintd/shadowrocket/master/clash
+    url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
     interval: 900
+    filter: '(?i)(港|HK|Hong)'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  台湾:
+    type: http
+    path: ./profiles/proxies/clash.yaml
+    url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
+    interval: 900
+    filter: '(?i)(台|TW|Tai)'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  美国:
+    type: http
+    path: ./profiles/proxies/clash.yaml
+    url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
+    interval: 900
+    filter: '(?i)(美|US|United States)'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  新加坡:
+    type: http
+    path: ./profiles/proxies/clash.yaml
+    url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
+    interval: 900
+    filter: '(?i)(新加坡|SG|Singapore)'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  韩国:
+    type: http
+    path: ./profiles/proxies/clash.yaml
+    url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
+    interval: 900
+    filter: '(?i)(KR|Korea|KOR|韩|韓)'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  日本:
+    type: http
+    path: ./profiles/proxies/clash.yaml
+    url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
+    interval: 900
+    filter: '(?i)(日|JP|Japan)'
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  其它:
+    type: http
+    path: ./profiles/proxies/clash.yaml
+    url: https://raw.iqiq.io/xintd/TopFreeProxies/master/Eternity.yaml
+    interval: 900
+    filter: '(?i)(RU|CA|DE|GB|FR|NO|PA|ID|IN|IR)'
     health-check:
       enable: true
       url: http://www.gstatic.com/generate_204
@@ -17,14 +78,68 @@ proxy-providers:
 
 proxy-groups:
   - name: 🚀 PROXY
+    type: load-balance
+    interval: 300
+    url: http://www.gstatic.com/generate_204
+    proxies:
+      - HK
+      - TW
+      - US
+      - SG
+      - KR
+      - JP
+      - etc.
+      - DIRECT
+
+  - name: HK
     type: url-test
     interval: 300
     tolerance: 100
     url: http://www.gstatic.com/generate_204
     use:
-      - TopFreeProxies
-    proxies:
-      - DIRECT
+      - 香港
+  - name: TW
+    type: url-test
+    interval: 300
+    tolerance: 100
+    url: http://www.gstatic.com/generate_204
+    use:
+      - 台湾
+  - name: US
+    type: url-test
+    interval: 300
+    tolerance: 100
+    url: http://www.gstatic.com/generate_204
+    use:
+      - 美国
+  - name: SG
+    type: url-test
+    interval: 300
+    tolerance: 100
+    url: http://www.gstatic.com/generate_204
+    use:
+      - 新加坡
+  - name: KR
+    type: url-test
+    interval: 300
+    tolerance: 100
+    url: http://www.gstatic.com/generate_204
+    use:
+      - 韩国
+  - name: JP
+    type: url-test
+    interval: 300
+    tolerance: 100
+    url: http://www.gstatic.com/generate_204
+    use:
+      - 日本
+  - name: etc.
+    type: url-test
+    interval: 300
+    tolerance: 100
+    url: http://www.gstatic.com/generate_204
+    use:
+      - 其它
 
 rule-providers:
   reject: # 广告域名列表
